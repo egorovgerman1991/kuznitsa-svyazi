@@ -1,12 +1,1340 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Кузница Связи — Галерея с пролистыванием</title>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Профессиональный монтаж оптоволоконных линий связи. Бесплатный выезд, работы любой сложности 24/7" name="description"/>
+<title>Монтаж оптоволоконных сетей — Кузница Связи</title>
+<style>
+html { scroll-padding-top: 80px; }
+
+  :root{
+    --accent:#0f62fe;
+    --muted:#6b7280;
+    --card:#ffffff;
+    --bg:#f7fafc;
+    --border:#e6edf3;
+    --text:#0f1724;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  *,*::before,*::after{box-sizing:border-box}
+  
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    font-size:16px;
+  }
+  
+  img{max-width:100%;height:auto;display:}
+  
+  .container{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+  
+  /* Header */
+  header{
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:100;
+  }
+  
+  .topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 0;
+    gap:16px;
+  }
+  
+  .logo{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    font-weight:700;
+    flex-shrink:0;
+  }
+  
+  .logo-text{font-size:16px}
+  .logo-subtitle{font-size:12px;color:var(--muted);font-weight:400}
+  
+  .nav{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  
+  .nav-toggle{
+    display:none;
+    background:none;
+    border:none;
+    font-size:24px;
+    cursor:pointer;
+    padding:8px;
+  }
+  
+  a{
+    color:inherit;
+    text-decoration:none;
+    transition:color 0.2s;
+  }
+  
+  a:hover{color:var(--accent)}
+  
+  /* Buttons */
+  .btn{
+    background:var(--accent);
+    color:#fff;
+    padding:10px 16px;
+    border-radius:8px;
+    display:inline-block;
+    border:none;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:500;
+    transition:transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 4px 12px rgba(15,98,254,0.3);
+    color:#fff;
+  }
+  
+  .btn-outline{
+    background:transparent;
+    color:var(--text);
+    border:1px solid var(--border);
+    padding:10px 14px;
+  }
+  
+  .btn-outline:hover{
+    background:var(--bg);
+    transform:translateY(-1px);
+  }
+  
+  /* Hero */
+  .hero{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:24px;
+    padding:32px 0;
+  }
+  
+  .breadcrumbs{
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:12px;
+  }
+  
+  .title{
+    font-size:clamp(24px, 5vw, 32px);
+    font-weight:700;
+    margin:8px 0 16px;
+    line-height:1.2;
+  }
+  
+  .lead{
+    color:var(--muted);
+    margin-bottom:16px;
+    font-size:16px;
+  }
+  
+  .hero-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:16px;
+  }
+  
+  .hero-note{
+    margin-top:18px;
+    color:var(--muted);
+    font-size:14px;
+  }
+  
+  /* Card */
+  .card{
+    background:var(--card);
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(12,14,20,0.04);
+    border:1px solid var(--border);
+  }
+  
+  /* Price Table */
+  .price-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:12px;
+  }
+  
+  .price-table th,
+  .price-table td{
+    padding:12px 8px;
+    border-bottom:1px solid #f1f5f9;
+    text-align:left;
+    font-size:14px;
+  }
+  
+  .price-table th{
+    font-weight:600;
+    background:var(--bg);
+  }
+  
+  .price{
+    font-weight:700;
+    white-space:nowrap;
+  }
+  
+  /* Grid */
+  .grid{
+    display:grid;
+    gap:16px;
+    margin-top:16px;
+  }
+  
+  /* Gallery */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+    gap:12px;
+    margin-top:16px;
+  }
+  
+  .gallery img{
+    width:100%;
+    height:140px;
+    object-fit:cover;
+    border-radius:8px;
+  }
+  
+  /* Contact */
+  .contact-row{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    margin-top:12px;
+  }
+  
+  .contact-icon{
+    font-size:20px;
+    flex-shrink:0;
+  }
+  
+  /* Form */
+  form input,
+  form textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    margin-top:8px;
+    font-size:14px;
+    font-family:inherit;
+  }
+  
+  form input:focus,
+  form textarea:focus{
+    outline:none;
+    border-color:var(--accent);
+  }
+  
+  /* Badge */
+  .badge{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:999px;
+    background:#eef6ff;
+    color:var(--accent);
+    font-weight:600;
+    font-size:13px;
+  }
+  
+  /* Section */
+  section{margin-top:40px}
+  
+  h2,h3,h4{margin-top:0;line-height:1.3}
+  h2{font-size:clamp(20px, 4vw, 24px)}
+  h3{font-size:clamp(18px, 3.5vw, 20px)}
+  
+  .section-header{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+  }
+  
+  /* Footer */
+  footer{
+    padding:32px 0 20px;
+    color:var(--muted);
+    font-size:13px;
+    margin-top:48px;
+    border-top:1px solid var(--border);
+  }
+  
+  .footer-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  
+  /* Responsive Design */
+  
+  /* Tablet (720px+) */
+  @media(min-width:720px){
+    .grid.cols-3{
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    }
+    
+    .gallery{
+      grid-template-columns:repeat(4, 1fr);
+    }
+    
+    .gallery img{
+      height:120px;
+    }
+  }
+  
+  /* Desktop (880px+) */
+  @media(min-width:880px){
+    .hero{
+      grid-template-columns:1fr 420px;
+      align-items:start;
+    }
+    
+    .grid.cols-3{
+      grid-template-columns:repeat(3, 1fr);
+    }
+  }
+  
+  /* Mobile (max 720px) */
+  @media(max-width:720px){
+    .container{
+      padding:0 16px;
+    }
+    
+    .nav{
+      position:fixed;
+      top:60px;
+      left:0;
+      right:0;
+      background:#fff;
+      flex-direction:column;
+      padding:20px;
+      border-bottom:1px solid var(--border);
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      display:none;
+    }
+    
+    .nav.active{
+      display:flex;
+    }
+    
+    .nav-toggle{
+      display:block;
+    }
+    
+    .nav a{
+      width:100%;
+      padding:12px 0;
+    }
+    
+    .hero{
+      padding:20px 0;
+    }
+    
+    .price-table{
+      font-size:13px;
+    }
+    
+    .price-table th,
+    .price-table td{
+      padding:10px 6px;
+    }
+    
+    section{
+      margin-top:32px;
+    }
+    
+    .card{
+      padding:16px;
+    }
+  }
+  
+  /* Small Mobile (max 480px) */
+  @media(max-width:480px){
+    .logo-text{
+      font-size:14px;
+    }
+    
+    .logo-subtitle{
+      display:none;
+    }
+    
+    .title{
+      font-size:22px;
+    }
+    
+    .lead{
+      font-size:15px;
+    }
+    
+    .hero-actions{
+      flex-direction:column;
+    }
+    
+    .hero-actions a,
+    .hero-actions .btn{
+      width:100%;
+      text-align:center;
+    }
+    
+    .gallery{
+      grid-template-columns:repeat(2, 1fr);
+    }
+    
+    .gallery img{
+      height:100px;
+    }
+    
+    .section-header{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    
+    .footer-content{
+      flex-direction:column;
+      align-items:flex-start;
+      text-align:left;
+    }
+  }
+  
+  /* Print Styles */
+  @media print{
+    header{
+      position:static;
+    }
+    
+    .nav,.btn,.nav-toggle{
+      display:none;
+    }
+    
+    .card{
+      box-shadow:none;
+      border:1px solid #ddd;
+    }
+  }
+
+.gallery-hover {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.gallery-hover figure {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 0;
+}
+.gallery-hover img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.gallery-hover figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 13px;
+  padding: 8px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.4s ease;
+}
+.gallery-hover figure:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.8);
+}
+.gallery-hover figure:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.7);
+  z-index: 2000;
+  padding: 20px;
+}
+.modal.open { display: flex; }
+.modal-content {
+  max-width: 95%;
+  max-height: 95%;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.modal-content img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: contain;
+}
+.modal-close {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+</style>
 </head>
 <body>
+<header>
+<div class="container">
+<div class="topbar">
+<div class="logo">
+<img alt="Логотип Кузница Связи" height="34" src="logo-transparent.png" style="width:40px;height:40px;object-fit:contain;border-radius:8px;margin-right:6px;vertical-align:middle;" width="34"/ style="width:60px;height:60px;object-fit:contain;border-radius:10px;margin-right:8px;vertical-align:middle;" width="60" height="60">
+<div>
+<div class="logo-text">Кузница Связи</div>
+<div class="logo-subtitle">Монтаж слаботочных сетей</div>
+</div>
+</div>
+<button aria-expanded="false" aria-label="Открыть меню" class="nav-toggle" id="navToggle">☰</button>
+<nav aria-label="Главное меню" class="nav" id="mainNav">
+  <a href="#about">О компании</a><a class="" href="#gallery">Галерея работ</a><a class="" href="#partners">Партнёры</a><a href="#prices">Цены</a>
+<a class="btn" href="#contact">Связаться с нами</a>
+</nav>
+</div>
+</div>
+</header>
+<main class="container">
+<div aria-label="Хлебные крошки" class="breadcrumbs">
+    Главная › Монтаж и обслуживание › Монтаж оптоволоконных сетей
+  </div>
+<!-- Hero Section -->
+<section class="hero">
+<div>
+<h1 class="title">Прокладка волоконно-оптических линий связи в Санкт-Петербурге</h1>
+<p class="lead">Выполняем монтаж магистральных и внутренних оптоволоконных линий: прокладка в грунте, в каналах, воздушная прокладка, сварочные работы и тестирование. Бесплатный выезд для замера и составления сметы.</p>
+<div class="hero-actions">
+</div>
+<div class="hero-note">
+        ✓ Консультация и выезд — бесплатно<br/>
+        ✓ Срочные аварийные выезды 24/7
+      </div>
+<div class="card" style="margin-top:20px">
+<div style="font-size:15px;font-weight:700;margin-bottom:8px">Контакты</div>
+<div class="contact-row">
+<div class="contact-icon">📞</div>
+<div>
+<div style="font-weight:700"><a href="tel:+79932048787" style="color:inherit;text-decoration:none;">+7 993 204 87 87</a></div>
+<div style="display:flex;gap:8px;align-items:center;margin-top:6px;">
+<a aria-label="Telegram" href="https://t.me/+79932048787" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#0088cc;transition:transform 0.2s,box-shadow 0.2s;" target="_blank">
+<svg fill="white" height="18" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M9.04 15.47l-.39 5.47c.56 0 .8-.24 1.09-.53l2.62-2.51 5.43 3.99c1 .55 1.71.26 1.97-.93l3.58-16.88c.32-1.5-.55-2.09-1.54-1.73L1.53 9.69c-1.46.58-1.44 1.4-.25 1.78l5.82 1.81L19.17 6.5c.57-.37 1.09-.17.66.2"></path></svg>
+</a>
+<a aria-label="WhatsApp" href="https://wa.me/79932048787" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#25D366;transition:transform 0.2s,box-shadow 0.2s;" target="_blank">
+<svg fill="white" height="18" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.77 11.77 0 0012 0a11.78 11.78 0 00-8.5 20.1L2 24l3.98-1.48A11.78 11.78 0 0012 23.6a11.77 11.77 0 008.52-20.12zM12 21a9.76 9.76 0 01-5-1.36l-.35-.2-2.95 1.1.8-2.83-.23-.3A9.74 9.74 0 1121.74 12 9.7 9.7 0 0112 21zm5.25-7.44c-.28-.14-1.64-.81-1.9-.9s-.44-.14-.63.14-.72.9-.88 1.08-.33.2-.61.07a7.94 7.94 0 01-2.34-1.45 8.77 8.77 0 01-1.63-2c-.17-.29 0-.44.13-.58s.29-.33.44-.5a2 2 0 00.29-.49.52.52 0 000-.49c0-.14-.63-1.52-.86-2.09s-.45-.48-.63-.49h-.54a1 1 0 00-.71.33 2.91 2.91 0 00-.9 2.15 5.05 5.05 0 001 2.57 11.66 11.66 0 004.47 4.08 10.45 10.45 0 005.19 1.44 4.3 4.3 0 001.93-.45 3 3 0 001.3-1.72c.09-.17.09-.32.06-.45a.72.72 0 00-.38-.52z"></path></svg>
+</a>
+</div>
+<div style="color:var(--muted);font-size:13px">mma.telecom@mail.ru</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="card">
+<img alt="Оптоволоконный кабель" loading="lazy" src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&amp;auto=format&amp;fit=crop" style="width:100%;height:220px;object-fit:cover;border-radius:8px"/>
+<div style="margin-top:12px">
+<div style="font-weight:700">Быстро и надёжно</div>
+<div style="color:var(--muted);font-size:14px;margin-top:6px">Реализация проектов любой сложности: от прокладки в доме до магистральных участков.</div>
+</div>
+</aside>
+</section>
+<section id="about" style="background-color: #ffffff; padding: 60px 0;">
+<div class="container">
+<h3 style="text-align:center;">О компании</h3>
+<div style="max-width:900px; margin:0 auto; font-size:16px; line-height:1.7; color:#333; text-align:justify;">
+<p><strong>«Кузница Связи»</strong> — это надёжный партнёр с более чем <strong>15-летним опытом</strong> в сфере строительства и обслуживания телекоммуникационных сетей.
+          Мы создаём решения, которые обеспечивают <strong>быструю, стабильную и безопасную связь</strong> — от небольших офисов до масштабных магистральных линий.</p>
+<p>Нам доверяют крупные федеральные и международные компании, ведь мы гарантируем:</p>
+<ul style="margin-left:20px;">
+<li>🔧 <strong>Безупречное качество работ</strong> — от проектирования до финальных испытаний;</li>
+<li>⚙️ <strong>Современные технологии</strong> и проверенные решения;</li>
+<li>🚀 <strong>Оперативное выполнение задач</strong> и гибкость в подходе к каждому проекту;</li>
+<li>🤝 <strong>Прозрачные условия сотрудничества</strong> и долгосрочные отношения с клиентами.</li>
+</ul>
+<p><strong>Наши услуги включают:</strong></p>
+<ul style="margin-left:20px;">
+<li>✅ Строительство и обслуживание ВОЛС и СКС;</li>
+<li>✅ Сварку и тестирование оптоволокна;</li>
+<li>✅ Проектирование и согласование документации (ПИР);</li>
+<li>✅ Монтаж и подключение телекоммуникационного оборудования;</li>
+<li>✅ Аварийно-восстановительные выезды 24/7.</li>
+</ul>
+<p style="margin-top:20px;"><strong>Мы не просто строим сети — мы создаём инфраструктуру, на которой держится бизнес наших клиентов.</strong></p>
+</div>
+</div>
+</section>
+<!-- Prices Section -->
+<section id="prices">
+<div class="section-header">
+<h2>Примерные цены на монтаж оптоволокна</h2>
+<div class="badge">Ориентировочно</div>
+</div>
+<div class="card">
+<div style="overflow-x:auto">
+<table aria-label="Прайс-лист" class="price-table">
+<thead>
+<tr>
+<th>Услуга</th>
+<th style="width:110px">Цена (руб.)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Прокладка в помещении (за м)</td><td class="price">от 60</td></tr>
+<tr><td>Прокладка воздушным способом (за м)</td><td class="price">от 80</td></tr>
+<tr><td>Прокладка в канале (за м)</td><td class="price">от 60</td></tr>
+<tr><td>Сварка оптоволокна (1–8 волокон)</td><td class="price">≈ 500</td></tr>
+<tr><td>Тестирование рефлектометром</td><td class="price">от 200</td></tr>
+<tr><td>Аварийный выезд</td><td class="price">по согласованию</td></tr>
+<tr><td>Тестирование и анализ ВОЛС поверенным рефлектометром</td><td class="price">—</td></tr><tr><td>Прокладка кабеля в телефонной канализации в Спб от 80 р/м, Лен. Область от 60 р/м, подвес кабеля по опорам 70 р/м</td><td class="price">—</td></tr><tr><td>Аварийные выезды для устранения повреждения оптоволоконного кабеля 24/7</td><td class="price">—</td></tr><tr><td>Поставка волоконно-оптических кабелей и компонентов для построения ВОЛС</td><td class="price">—</td></tr><tr><td>Разработка и согласование проектной документации, проведение предпроектных технических обследований (ПИР)</td><td class="price">—</td></tr><tr><td>Аварийно-восстановительные работы, ремонт упавших трубостоек, установка новых трубостоек (подберем и изготовим любого вида, длины, под ваши нужды)</td><td class="price">—</td></tr><tr><td>Строительство Структурированных Кабельных Систем (СКС, Компьютерная сеть) в офисах, бизнес центрах, торговых комплексах</td><td class="price">—</td></tr><tr><td>Имеем все необходимые документы для проведения работ на Вашем объекте (пожарная безопасность, охраны труда, работы на высоте, электробезопасность)</td><td class="price">—</td></tr><tr><td>Установка/сборка телекоммуникационных шкафов</td><td class="price">—</td></tr><tr><td>Монтаж электропитания, установка автоматов, щитков, расчет нагрузок</td><td class="price">—</td></tr><tr><td>Переносы узлов связи любой сложности, составление кроссовых ведомостей</td><td class="price">—</td></tr><tr><td>Имеем действующие согласованные доступы на большинство объектов коммерческой недвижимости (БЦ, ТРК, ТК)</td><td class="price">—</td></tr><tr><td>Строительство кабельных вводов, подготовка траншей для укладки кабеля в грунт, восстановление покрытия после окончания работ</td><td class="price">—</td></tr><tr><td>Согласования о проведении работ со сторонними операторами связи (РТК, Билайн, Мегафон, МТС), с городскими службами, с управляющими компаниями</td><td class="price">—</td></tr><tr><td>Любые высотные работы как на автовышке, так и посредством промышленного альпинизма (все документы и снаряжение имеется в наличии)</td><td class="price">—</td></tr></tbody>
+</table>
+</div>
+<div style="margin-top:12px;color:var(--muted);font-size:13px">
+        Точная стоимость определяется после выезда специалиста и составления сметы. Цены приведены для примера.
+      </div>
+</div>
+</section>
+<!-- Features Section -->
+<section id="services">
+<h3>Особенности прокладки ВОЛС</h3>
+<div class="grid cols-3">
+<div class="card">
+<strong>Надёжность и пропускная способность</strong>
+<p style="color:var(--muted);margin:8px 0 0">Оптоволокно обеспечивает высокую скорость передачи и устойчивость к помехам.</p>
+</div>
+<div class="card">
+<strong>Разные способы прокладки</strong>
+<p style="color:var(--muted);margin:8px 0 0">Грунт, канализация, подвесная прокладка — подберём оптимальное решение.</p>
+</div>
+<div class="card">
+<strong>Сварка и тестирование</strong>
+<p style="color:var(--muted);margin:8px 0 0">Проводим квалифицированную сварку волокон и измерения рефлектометром.</p>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+
+
+<section id="gallery">
 <h3>Галерея работ</h3>
-<p>Пример галереи с lightbox.</p>
+<div class="gallery gallery-hover">
+<figure>
+<img alt="Монтаж оптоволоконного кабеля" loading="lazy" src="17.jpg"/>
+<figcaption>Процесс монтажа оптоволоконного кабеля</figcaption>
+</figure>
+<figure>
+<img alt="Оптический распределительный кросс" loading="lazy" src="18.jpg"/>
+<figcaption>Настройка оптического распределительного кросса</figcaption>
+</figure>
+<figure>
+<img alt="Прокладка кабеля на крыше здания" loading="lazy" src="19.jpg"/>
+<figcaption>Прокладка кабеля на крыше административного здания</figcaption>
+</figure>
+<figure>
+<img alt="Сварка оптоволоконных волокон" loading="lazy" src="20.jpg"/>
+<figcaption>Сварка оптоволоконных волокон с применением оборудования</figcaption>
+</figure>
+<figure>
+<img alt="Муфта соединения волокон" loading="lazy" src="21.jpg"/>
+<figcaption>Монтаж муфты для соединения волокон</figcaption>
+</figure>
+<figure>
+<img alt="Серверный шкаф с оборудованием" loading="lazy" src="22.jpg"/>
+<figcaption>Серверный шкаф с установленным телекоммуникационным оборудованием</figcaption>
+</figure>
+<figure>
+<img alt="Оптический кросс с подключениями" loading="lazy" src="23.jpg"/>
+<figcaption>Подключения в оптическом кроссе</figcaption>
+</figure>
+<figure>
+<img alt="Оптическая муфта крупным планом" loading="lazy" src="24.jpg"/>
+<figcaption>Оптическая муфта крупным планом</figcaption>
+</figure>
+<figure>
+<img alt="Серверная стойка с телекоммуникационным оборудованием" loading="lazy" src="25.jpg"/>
+<figcaption>Серверная стойка с телекоммуникационным оборудованием</figcaption>
+</figure>
+<figure>
+<img alt="Аккумуляторные батареи резервного питания" loading="lazy" src="26.jpg"/>
+<figcaption>Аккумуляторные батареи резервного питания</figcaption>
+</figure>
+<figure>
+<img alt="Батарейные стойки крупным планом" loading="lazy" src="27.jpg"/>
+<figcaption>Батарейные стойки крупным планом</figcaption>
+</figure>
+<figure>
+<img alt="Источники бесперебойного питания Huawei" loading="lazy" src="28.jpg"/>
+<figcaption>Источники бесперебойного питания Huawei</figcaption>
+</figure>
+<figure>
+<img alt="Оптический распределительный кросс" loading="lazy" src="29.jpg"/>
+<figcaption>Оптический распределительный кросс</figcaption>
+</figure>
+<figure>
+<img alt="Кросс оптический с подключёнными коннекторами" loading="lazy" src="30.jpg"/>
+<figcaption>Кросс оптический с подключёнными коннекторами</figcaption>
+</figure>
+<figure>
+<img alt="Оптический распределительный бокс с волоконными соединениями" loading="lazy" src="31.jpg"/>
+<figcaption>Оптический распределительный бокс с волоконными соединениями</figcaption>
+</figure>
+<figure>
+<img alt="Антенное оборудование на крыше здания" loading="lazy" src="32.jpg"/>
+<figcaption>Антенное оборудование на крыше здания</figcaption>
+</figure>
+<figure>
+<img alt="Прокладка кабеля вдоль крыши здания" loading="lazy" src="33.jpg"/>
+<figcaption>Прокладка кабеля вдоль крыши здания</figcaption>
+</figure>
+<figure>
+<img alt="Монтаж в большом помещении с подъемниками" loading="lazy" src="34.jpg"/>
+<figcaption>Монтаж оптоволоконных линий в крупном помещении</figcaption>
+</figure>
+<figure>
+<img alt="Этапы строительства и монтажа ВОЛС" loading="lazy" src="35.jpg"/>
+<figcaption>Работы по прокладке ВОЛС на строительном объекте</figcaption>
+</figure>
+<figure>
+<img alt="Серверная стойка с кабелями" loading="lazy" src="36.jpg"/>
+<figcaption>Организация кабельного хозяйства в серверной</figcaption>
+</figure>
+<figure>
+<img alt="Оптические кроссы и коммутация" loading="lazy" src="37.jpg"/>
+<figcaption>Оптические кроссы с установленными коннекторами</figcaption>
+</figure>
+<figure>
+<img alt="Оптический распределительный шкаф" loading="lazy" src="38.jpg"/>
+<figcaption>Оптический распределительный шкаф</figcaption>
+</figure>
+<figure>
+<img alt="Стойка с оборудованием и кабельными трассами" loading="lazy" src="39.jpg"/>
+<figcaption>Телкоммуникационная стойка с оборудованием</figcaption>
+</figure>
+<figure>
+<img alt="Патч-панель и оптический кросс" loading="lazy" src="40.jpg"/>
+<figcaption>Подключение патч-кордов и оптических соединений</figcaption>
+</figure>
+<figure>
+<img alt="Оптические панели и кроссовое оборудование" loading="lazy" src="41.jpg"/>
+<figcaption>Панели оптического кросса в серверной</figcaption>
+</figure>
+<figure>
+<img alt="Кабельная организация в серверной" loading="lazy" src="42.jpg"/>
+<figcaption>Аккуратная укладка кабелей в серверном шкафу</figcaption>
+</figure>
+<figure>
+<img alt="Серверный шкаф с коммутационным оборудованием" loading="lazy" src="43.jpg"/>
+<figcaption>Серверный шкаф с коммутационным оборудованием</figcaption>
+</figure>
+<figure>
+<img alt="Серверная стойка с кабелями и оборудованием" loading="lazy" src="44.jpg"/>
+<figcaption>Серверная стойка с кабельными трассами и оборудованием</figcaption>
+</figure>
+<figure>
+<img alt="Оптические соединения с жёлтыми патч-кордами" loading="lazy" src="45.jpg"/>
+<figcaption>Подключение оптических патч-кордов</figcaption>
+</figure>
+<figure>
+<img alt="Организация оптических соединений" loading="lazy" src="46.jpg"/>
+<figcaption>Организация оптических соединений и кабельных трасс</figcaption>
+</figure>
+<figure>
+<img alt="Воздушная прокладка кабеля на крыше здания" loading="lazy" src="47.jpg"/>
+<figcaption>Воздушная прокладка кабеля на крыше здания</figcaption>
+</figure>
+<figure>
+<img alt="Крепление кабеля вдоль кровли здания" loading="lazy" src="48.jpg"/>
+<figcaption>Крепление кабеля вдоль кровли здания</figcaption>
+</figure>
+<figure>
+<img alt="Монтаж кабеля по фасаду высотного здания" loading="lazy" src="49.jpg"/>
+<figcaption>Монтаж оптоволоконного кабеля по фасаду здания</figcaption>
+</figure>
+<figure>
+<img alt="Вид на крышу и трассы кабелей" loading="lazy" src="50.jpg"/>
+<figcaption>Вид на крышу с установленными кабельными трассами</figcaption>
+</figure>
+<figure>
+<img alt="Оборудование на крыше здания" loading="lazy" src="51.jpg"/>
+<figcaption>Установка телекоммуникационного оборудования на крыше здания</figcaption>
+</figure>
+<figure>
+<img alt="Металлическая конструкция с осветительным оборудованием" loading="lazy" src="52.jpg"/>
+<figcaption>Освещение и оборудование на металлической конструкции</figcaption>
+</figure>
+<figure>
+<img alt="Кабельная трасса к осветительной конструкции" loading="lazy" src="53.jpg"/>
+<figcaption>Прокладка кабеля к уличному оборудованию</figcaption>
+</figure>
+<figure>
+<img alt="Оптоволоконный кабель на крыше здания" loading="lazy" src="54.jpg"/>
+<figcaption>Монтаж оптоволоконного кабеля на крыше</figcaption>
+</figure>
+<figure>
+<img alt="Монтаж оптической линии с подъемником" loading="lazy" src="55.jpg"/>
+<figcaption>Монтаж оптической линии связи с использованием подъемника</figcaption>
+</figure>
+<figure>
+<img alt="Крепление муфты и оптического кабеля" loading="lazy" src="56.jpg"/>
+<figcaption>Крепление муфты и оптического кабеля на стене здания</figcaption>
+</figure>
+<figure>
+<img alt="Вид на железнодорожные вагоны в музее" loading="lazy" src="57.jpg"/>
+<figcaption>Интерьер музея железнодорожной техники</figcaption>
+</figure>
+<figure>
+<img alt="Экспозиция железнодорожного музея" loading="lazy" src="58.jpg"/>
+<figcaption>Экспозиция вагонов и локомотивов в музее</figcaption>
+</figure>
+<figure>
+<img alt="Кабельные трассы на крыше старого здания" loading="lazy" src="59.jpg"/>
+<figcaption>Монтаж кабельных трасс на кровле старого здания</figcaption>
+</figure>
+<figure>
+<img alt="Прокладка кабеля вдоль парапета крыши" loading="lazy" src="60.jpg"/>
+<figcaption>Прокладка кабеля вдоль парапета крыши здания</figcaption>
+</figure>
+<figure>
+<img alt="Монтаж оптической линии к рекламному щиту" loading="lazy" src="61.jpg"/>
+<figcaption>Монтаж оптической линии связи к наружной конструкции</figcaption>
+</figure>
+<figure>
+<img alt="Альпинист выполняет монтаж кабеля на фасаде здания" loading="lazy" src="62.jpg"/>
+<figcaption>Монтаж кабеля по фасаду здания промышленным альпинистом</figcaption>
+</figure>
+</div>
+</section>
+<section id="partners" style="background-color: #f5f5f5; padding: 60px 0;">
+<div class="container">
+<h3 style="text-align:center;">Партнёры</h3>
+<p style="text-align:center; color: var(--muted); font-size: 15px; margin-top: -6px;">
+<strong>Наша компания более 15 лет успешно работает на рынке, предоставляя высококачественные кузнечные изделия и услуги.</strong><br/>
+        За годы работы мы заслужили доверие ведущих российских брендов, которые выбрали нас в качестве надёжного партнёра.
+      </p>
+<div class="partners-grid">
+<img alt="Газпром" loading="lazy" src="70.png"/>
+<img alt="McDonald's" loading="lazy" src="71.png"/>
+<img alt="Спортмастер" loading="lazy" src="72.png"/>
+<img alt="Ростелеком" loading="lazy" src="73.jpg"/>
+<img alt="Билайн" loading="lazy" src="74.jpg"/>
+<img alt="Мегафон" loading="lazy" src="75.png"/>
+<img alt="МТС" loading="lazy" src="76.png"/>
+<img alt="Перекрёсток" loading="lazy" src="77.jpg"/>
+<img alt="X5 Retail Group" loading="lazy" src="78.jpg"/>
+<img alt="Делимобиль" loading="lazy" src="79.jpg"/>
+<img alt="KFC" loading="lazy" src="80.jpg"/>
+<img alt="СБЕР" loading="lazy" src="81.jpeg"/>
+<img alt="Альфа-Банк" loading="lazy" src="82.png"/>
+<img alt="ВТБ" loading="lazy" src="83.jpeg"/>
+<img alt="Hoff" loading="lazy" src="84.jpg"/>
+<img alt="Toyota" loading="lazy" src="85.jpg"/>
+</div>
+</div>
+</section>
+<style>
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 30px;
+      align-items: center;
+      justify-items: center;
+      margin-top: 30px;
+    }
+    .partners-grid img {
+      max-height: 70px;
+      width: auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .partners-grid img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 48px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      padding: 20px;
+    }
+    .lightbox-arrow.left { left: 20px; }
+    .lightbox-arrow.right { right: 20px; }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 36px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+<script>
+    const images = document.querySelectorAll('.partners-grid img');
+    const lightbox = document.createElement('div');
+    lightbox.classList.add('lightbox');
+    lightbox.innerHTML = `
+      <span class="lightbox-close">&times;</span>
+      <span class="lightbox-arrow left">&#10094;</span>
+      <img src="" alt="">
+      <span class="lightbox-arrow right">&#10095;</span>
+    `;
+    document.body.appendChild(lightbox);
+
+    const lightboxImg = lightbox.querySelector('img');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const prevBtn = lightbox.querySelector('.lightbox-arrow.left');
+    const nextBtn = lightbox.querySelector('.lightbox-arrow.right');
+    let currentIndex = 0;
+
+    function showImage(index) {
+      if (index < 0) index = images.length - 1;
+      if (index >= images.length) index = 0;
+      currentIndex = index;
+      lightboxImg.src = images[index].src;
+      lightbox.classList.add('active');
+    }
+
+    images.forEach((img, i) => {
+      img.addEventListener('click', () => showImage(i));
+    });
+
+    closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('active'); });
+    prevBtn.addEventListener('click', e => { e.stopPropagation(); showImage(currentIndex - 1); });
+    nextBtn.addEventListener('click', e => { e.stopPropagation(); showImage(currentIndex + 1); });
+
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+      if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+      if (e.key === 'Escape') lightbox.classList.remove('active');
+    });
+  </script>
+<style>
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 30px;
+      align-items: center;
+      justify-items: center;
+      margin-top: 30px;
+    }
+    .partners-grid img {
+      max-height: 70px;
+      width: auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .partners-grid img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 48px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      padding: 20px;
+    }
+    .lightbox-arrow.left { left: 20px; }
+    .lightbox-arrow.right { right: 20px; }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 36px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+<script>
+    const images = document.querySelectorAll('.partners-grid img');
+    const lightbox = document.createElement('div');
+    lightbox.classList.add('lightbox');
+    lightbox.innerHTML = `
+      <span class="lightbox-close">&times;</span>
+      <span class="lightbox-arrow left">&#10094;</span>
+      <img src="" alt="">
+      <span class="lightbox-arrow right">&#10095;</span>
+    `;
+    document.body.appendChild(lightbox);
+
+    const lightboxImg = lightbox.querySelector('img');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const prevBtn = lightbox.querySelector('.lightbox-arrow.left');
+    const nextBtn = lightbox.querySelector('.lightbox-arrow.right');
+    let currentIndex = 0;
+
+    function showImage(index) {
+      if (index < 0) index = images.length - 1;
+      if (index >= images.length) index = 0;
+      currentIndex = index;
+      lightboxImg.src = images[index].src;
+      lightbox.classList.add('active');
+    }
+
+    images.forEach((img, i) => {
+      img.addEventListener('click', () => showImage(i));
+    });
+
+    closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('active'); });
+    prevBtn.addEventListener('click', e => { e.stopPropagation(); showImage(currentIndex - 1); });
+    nextBtn.addEventListener('click', e => { e.stopPropagation(); showImage(currentIndex + 1); });
+
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+      if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+      if (e.key === 'Escape') lightbox.classList.remove('active');
+    });
+  </script>
+<style>
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 24px;
+      align-items: center;
+      justify-items: center;
+      margin-top: 24px;
+      background: transparent;
+    }
+    .partners-grid img {
+      max-height: 60px;
+      width: auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      filter: brightness(1);
+    }
+    .partners-grid img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    }
+    @media(max-width:600px){
+      .partners-grid img{max-height:48px;}
+    }
+  </style>
+<!-- Contact Section -->
+<section id="contact">
+<h3>Связаться с нами</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:16px">
+<div class="card">
+<h4>Наши контакты</h4>
+<div style="color:var(--muted);font-size:14px;margin-bottom:12px">Оставьте заявку — мы перезвоним для уточнения деталей.</div>
+<div class="contact-row">
+<div class="contact-icon">🏢</div>
+<div>
+<strong>Санкт-Петербург</strong>
+<div style="color:var(--muted);font-size:13px">Набережная Обводного канала, 150</div>
+</div>
+</div>
+<div class="contact-row">
+<div class="contact-icon">📞</div>
+<div><a href="tel:+79932048787" style="font-weight:700;color:inherit;text-decoration:none;">+7 993 204 87 87</a></div>
+<div style="display:flex;gap:8px;align-items:center;margin-top:6px;">
+<a aria-label="Telegram" href="https://t.me/+79932048787" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#0088cc;transition:transform 0.2s,box-shadow 0.2s;" target="_blank">
+<svg fill="white" height="18" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M9.04 15.47l-.39 5.47c.56 0 .8-.24 1.09-.53l2.62-2.51 5.43 3.99c1 .55 1.71.26 1.97-.93l3.58-16.88c.32-1.5-.55-2.09-1.54-1.73L1.53 9.69c-1.46.58-1.44 1.4-.25 1.78l5.82 1.81L19.17 6.5c.57-.37 1.09-.17.66.2"></path></svg>
+</a>
+<a aria-label="WhatsApp" href="https://wa.me/79932048787" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#25D366;transition:transform 0.2s,box-shadow 0.2s;" target="_blank">
+<svg fill="white" height="18" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.77 11.77 0 0012 0a11.78 11.78 0 00-8.5 20.1L2 24l3.98-1.48A11.78 11.78 0 0012 23.6a11.77 11.77 0 008.52-20.12zM12 21a9.76 9.76 0 01-5-1.36l-.35-.2-2.95 1.1.8-2.83-.23-.3A9.74 9.74 0 1121.74 12 9.7 9.7 0 0112 21zm5.25-7.44c-.28-.14-1.64-.81-1.9-.9s-.44-.14-.63.14-.72.9-.88 1.08-.33.2-.61.07a7.94 7.94 0 01-2.34-1.45 8.77 8.77 0 01-1.63-2c-.17-.29 0-.44.13-.58s.29-.33.44-.5a2 2 0 00.29-.49.52.52 0 000-.49c0-.14-.63-1.52-.86-2.09s-.45-.48-.63-.49h-.54a1 1 0 00-.71.33 2.91 2.91 0 00-.9 2.15 5.05 5.05 0 001 2.57 11.66 11.66 0 004.47 4.08 10.45 10.45 0 005.19 1.44 4.3 4.3 0 001.93-.45 3 3 0 001.3-1.72c.09-.17.09-.32.06-.45a.72.72 0 00-.38-.52z"></path></svg>
+</a>
+</div>
+</div>
+<div class="contact-row">
+<div class="contact-icon">✉️</div>
+<div><strong>mma.telecom@mail.ru</strong></div>
+</div>
+</div>
+<form class="card" onsubmit="return handleSubmit(event)">
+<h4>Форма заявки</h4>
+<input aria-label="Имя" name="name" placeholder="Имя" required=""/>
+<input aria-label="Телефон" name="phone" placeholder="Телефон" required="" type="tel"/>
+<input aria-label="Email" name="email" placeholder="Email" type="email"/>
+<textarea aria-label="Сообщение" name="message" placeholder="Кратко опишите задачу" rows="4"></textarea>
+<div style="margin-top:12px">
+<div style="font-size:12px;color:var(--muted);margin-bottom:12px">
+            Нажимая «Отправить», вы соглашаетесь с обработкой персональных данных
+          </div>
+<button class="btn" style="width:100%" type="submit">Отправить заявку</button>
+</div>
+</form>
+</div>
+</section>
+<footer>
+<div class="footer-content">
+<div>© <span id="year"></span> Кузница Связи — все права защищены</div>
+<div>
+<a href="#privacy" style="color:var(--muted)">Политика конфиденциальности</a> · 
+        <a href="#terms" style="color:var(--muted)">Условия</a>
+</div>
+</div>
+</footer>
+</main>
+<script>
+// Год в футере
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Мобильное меню
+const navToggle = document.getElementById('navToggle');
+const mainNav = document.getElementById('mainNav');
+
+navToggle.addEventListener('click', function() {
+  const isActive = mainNav.classList.toggle('active');
+  navToggle.setAttribute('aria-expanded', isActive);
+  navToggle.textContent = isActive ? '✕' : '☰';
+});
+
+// Закрытие меню при клике на ссылку
+mainNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mainNav.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.textContent = '☰';
+  });
+});
+
+// Закрытие меню при клике вне его
+document.addEventListener('click', function(event) {
+  if (!mainNav.contains(event.target) && !navToggle.contains(event.target)) {
+    mainNav.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.textContent = '☰';
+  }
+});
+
+// Обработка формы
+function handleSubmit(event) {
+  event.preventDefault();
+  alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+  event.target.reset();
+  return false;
+}
+
+// Плавная прокрутка к якорям
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href !== '#' && href.length > 1) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  });
+});
+
+// Адаптивная таблица (добавление скролла на мобильных)
+function checkTableOverflow() {
+  const tables = document.querySelectorAll('.price-table');
+  tables.forEach(table => {
+    const parent = table.parentElement;
+    if (table.offsetWidth > parent.offsetWidth) {
+      parent.style.overflowX = 'auto';
+    }
+  });
+}
+
+window.addEventListener('resize', checkTableOverflow);
+window.addEventListener('load', checkTableOverflow);
+
+// Ленивая загрузка изображений (для старых браузеров)
+if ('IntersectionObserver' in window) {
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+        }
+        observer.unobserve(img);
+      }
+    });
+  });
+
+  document.querySelectorAll('img[data-src]').forEach(img => {
+    imageObserver.observe(img);
+  });
+}
+</script>
+
+</html>
+<!-- Новый lightbox для раздела Галерея работ -->
+<style>
+  .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+  .lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 48px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    padding: 20px;
+  }
+  .lightbox-arrow.left { left: 20px; }
+  .lightbox-arrow.right { right: 20px; }
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 36px;
+    color: white;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  (function(){
+    const figures = document.querySelectorAll('.gallery-hover figure');
+    const lightbox = document.createElement('div');
+    lightbox.classList.add('lightbox');
+    lightbox.innerHTML = `
+      <span class="lightbox-close">&times;</span>
+      <span class="lightbox-arrow left">&#10094;</span>
+      <img src="" alt="">
+      <span class="lightbox-arrow right">&#10095;</span>
+    `;
+    document.body.appendChild(lightbox);
+
+    const lightboxImg = lightbox.querySelector('img');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const prevBtn = lightbox.querySelector('.lightbox-arrow.left');
+    const nextBtn = lightbox.querySelector('.lightbox-arrow.right');
+    let currentIndex = 0;
+
+    function showImage(index) {
+      if (index < 0) index = figures.length - 1;
+      if (index >= figures.length) index = 0;
+      currentIndex = index;
+      lightboxImg.src = figures[index].querySelector('img').src;
+      lightbox.classList.add('active');
+    }
+
+    figures.forEach((figure, i) => {
+      figure.addEventListener('click', () => showImage(i));
+    });
+
+    closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('active'); });
+    prevBtn.addEventListener('click', e => { e.stopPropagation(); showImage(currentIndex - 1); });
+    nextBtn.addEventListener('click', e => { e.stopPropagation(); showImage(currentIndex + 1); });
+
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+      if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+      if (e.key === 'Escape') lightbox.classList.remove('active');
+    });
+  })();
+</script>
 </body>
 </html>
