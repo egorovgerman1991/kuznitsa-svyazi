@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 <head>
 <meta charset="utf-8"/>
@@ -8,7 +7,6 @@
 <title>Монтаж оптоволоконных сетей — Кузница Связи</title>
 <style>
 html { scroll-padding-top: 80px; }
-
   :root{
     --accent:#0f62fe;
     --muted:#6b7280;
@@ -18,9 +16,7 @@ html { scroll-padding-top: 80px; }
     --text:#0f1724;
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
-  
   *,*::before,*::after{box-sizing:border-box}
-  
   body{
     margin:0;
     background:var(--bg);
@@ -28,15 +24,12 @@ html { scroll-padding-top: 80px; }
     line-height:1.6;
     font-size:16px;
   }
-  
   img{max-width:100%;height:auto;display:}
-  
   .container{
     max-width:1100px;
     margin:0 auto;
     padding:0 20px;
   }
-  
   /* Header */
   header{
     background:#fff;
@@ -45,7 +38,6 @@ html { scroll-padding-top: 80px; }
     top:0;
     z-index:100;
   }
-  
   .topbar{
     display:flex;
     align-items:center;
@@ -53,7 +45,6 @@ html { scroll-padding-top: 80px; }
     padding:12px 0;
     gap:16px;
   }
-  
   .logo{
     display:flex;
     gap:10px;
@@ -61,17 +52,14 @@ html { scroll-padding-top: 80px; }
     font-weight:700;
     flex-shrink:0;
   }
-  
   .logo-text{font-size:16px}
   .logo-subtitle{font-size:12px;color:var(--muted);font-weight:400}
-  
   .nav{
     display:flex;
     gap:14px;
     align-items:center;
     flex-wrap:wrap;
   }
-  
   .nav-toggle{
     display:none;
     background:none;
@@ -80,15 +68,12 @@ html { scroll-padding-top: 80px; }
     cursor:pointer;
     padding:8px;
   }
-  
   a{
     color:inherit;
     text-decoration:none;
     transition:color 0.2s;
   }
-  
   a:hover{color:var(--accent)}
-  
   /* Buttons */
   .btn{
     background:var(--accent);
@@ -102,25 +87,21 @@ html { scroll-padding-top: 80px; }
     font-weight:500;
     transition:transform 0.2s, box-shadow 0.2s;
   }
-  
   .btn:hover{
     transform:translateY(-1px);
     box-shadow:0 4px 12px rgba(15,98,254,0.3);
     color:#fff;
   }
-  
   .btn-outline{
     background:transparent;
     color:var(--text);
     border:1px solid var(--border);
     padding:10px 14px;
   }
-  
   .btn-outline:hover{
     background:var(--bg);
     transform:translateY(-1px);
   }
-  
   /* Hero */
   .hero{
     display:grid;
@@ -128,39 +109,33 @@ html { scroll-padding-top: 80px; }
     gap:24px;
     padding:32px 0;
   }
-  
   .breadcrumbs{
     font-size:13px;
     color:var(--muted);
     margin-bottom:12px;
   }
-  
   .title{
     font-size:clamp(24px, 5vw, 32px);
     font-weight:700;
     margin:8px 0 16px;
     line-height:1.2;
   }
-  
   .lead{
     color:var(--muted);
     margin-bottom:16px;
     font-size:16px;
   }
-  
   .hero-actions{
     display:flex;
     gap:12px;
     flex-wrap:wrap;
     margin-top:16px;
   }
-  
   .hero-note{
     margin-top:18px;
     color:var(--muted);
     font-size:14px;
   }
-  
   /* Card */
   .card{
     background:var(--card);
@@ -169,14 +144,12 @@ html { scroll-padding-top: 80px; }
     box-shadow:0 2px 8px rgba(12,14,20,0.04);
     border:1px solid var(--border);
   }
-  
   /* Price Table */
   .price-table{
     width:100%;
     border-collapse:collapse;
     margin-top:12px;
   }
-  
   .price-table th,
   .price-table td{
     padding:12px 8px;
@@ -184,24 +157,20 @@ html { scroll-padding-top: 80px; }
     text-align:left;
     font-size:14px;
   }
-  
   .price-table th{
     font-weight:600;
     background:var(--bg);
   }
-  
   .price{
     font-weight:700;
     white-space:nowrap;
   }
-  
   /* Grid */
   .grid{
     display:grid;
     gap:16px;
     margin-top:16px;
   }
-  
   /* Gallery */
   .gallery{
     display:grid;
@@ -209,14 +178,12 @@ html { scroll-padding-top: 80px; }
     gap:12px;
     margin-top:16px;
   }
-  
   .gallery img{
     width:100%;
     height:140px;
     object-fit:cover;
     border-radius:8px;
   }
-  
   /* Contact */
   .contact-row{
     display:flex;
@@ -224,12 +191,10 @@ html { scroll-padding-top: 80px; }
     align-items:flex-start;
     margin-top:12px;
   }
-  
   .contact-icon{
     font-size:20px;
     flex-shrink:0;
   }
-  
   /* Form */
   form input,
   form textarea{
@@ -241,13 +206,11 @@ html { scroll-padding-top: 80px; }
     font-size:14px;
     font-family:inherit;
   }
-  
   form input:focus,
   form textarea:focus{
     outline:none;
     border-color:var(--accent);
   }
-  
   /* Badge */
   .badge{
     display:inline-block;
@@ -258,14 +221,11 @@ html { scroll-padding-top: 80px; }
     font-weight:600;
     font-size:13px;
   }
-  
   /* Section */
   section{margin-top:40px}
-  
   h2,h3,h4{margin-top:0;line-height:1.3}
   h2{font-size:clamp(20px, 4vw, 24px)}
   h3{font-size:clamp(18px, 3.5vw, 20px)}
-  
   .section-header{
     display:flex;
     gap:18px;
@@ -273,7 +233,6 @@ html { scroll-padding-top: 80px; }
     justify-content:space-between;
     flex-wrap:wrap;
   }
-  
   /* Footer */
   footer{
     padding:32px 0 20px;
@@ -282,7 +241,6 @@ html { scroll-padding-top: 80px; }
     margin-top:48px;
     border-top:1px solid var(--border);
   }
-  
   .footer-content{
     display:flex;
     justify-content:space-between;
@@ -290,42 +248,34 @@ html { scroll-padding-top: 80px; }
     gap:16px;
     flex-wrap:wrap;
   }
-  
   /* Responsive Design */
-  
   /* Tablet (720px+) */
   @media(min-width:720px){
     .grid.cols-3{
       grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
     }
-    
     .gallery{
       grid-template-columns:repeat(4, 1fr);
     }
-    
     .gallery img{
       height:120px;
     }
   }
-  
   /* Desktop (880px+) */
   @media(min-width:880px){
     .hero{
       grid-template-columns:1fr 420px;
       align-items:start;
     }
-    
     .grid.cols-3{
       grid-template-columns:repeat(3, 1fr);
     }
   }
-  
   /* Mobile (max 720px) */
   @media(max-width:720px){
-    .container{
-      padding:0 16px;
-    }
-    
+  .gallery-hover { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  .gallery-hover figure img { height: 220px; }
+}
     .nav{
       position:fixed;
       top:60px;
@@ -338,111 +288,89 @@ html { scroll-padding-top: 80px; }
       box-shadow:0 4px 12px rgba(0,0,0,0.1);
       display:none;
     }
-    
     .nav.active{
       display:flex;
     }
-    
     .nav-toggle{
       display:block;
     }
-    
     .nav a{
       width:100%;
       padding:12px 0;
     }
-    
     .hero{
       padding:20px 0;
     }
-    
     .price-table{
       font-size:13px;
     }
-    
     .price-table th,
     .price-table td{
       padding:10px 6px;
     }
-    
     section{
       margin-top:32px;
     }
-    
     .card{
       padding:16px;
     }
   }
-  
   /* Small Mobile (max 480px) */
   @media(max-width:480px){
-    .logo-text{
-      font-size:14px;
-    }
-    
+  .gallery-hover { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+  .gallery-hover figure img { height: 200px; }
+}
     .logo-subtitle{
       display:none;
     }
-    
     .title{
       font-size:22px;
     }
-    
     .lead{
       font-size:15px;
     }
-    
     .hero-actions{
       flex-direction:column;
     }
-    
     .hero-actions a,
     .hero-actions .btn{
       width:100%;
       text-align:center;
     }
-    
     .gallery{
       grid-template-columns:repeat(2, 1fr);
     }
-    
     .gallery img{
       height:100px;
     }
-    
     .section-header{
       flex-direction:column;
       align-items:flex-start;
     }
-    
     .footer-content{
       flex-direction:column;
       align-items:flex-start;
       text-align:left;
     }
   }
-  
   /* Print Styles */
   @media print{
     header{
       position:static;
     }
-    
     .nav,.btn,.nav-toggle{
       display:none;
     }
-    
     .card{
       box-shadow:none;
       border:1px solid #ddd;
     }
   }
-
 .gallery-hover {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-  margin-top: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 22px;
+  margin-top: 25px;
 }
 .gallery-hover figure {
   position: relative;
@@ -477,7 +405,6 @@ html { scroll-padding-top: 80px; }
   opacity: 1;
   transform: translateY(0);
 }
-
 .modal {
   position: fixed;
   inset: 0;
@@ -518,7 +445,61 @@ html { scroll-padding-top: 80px; }
   cursor: pointer;
   font-size: 16px;
 }
-
+</style>
+<!-- Square thumbnails: enforce perfect aspect-ratio 1:1 on all devices -->
+<style>
+.gallery-hover {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 22px;
+  margin-top: 25px;
+}
+.gallery-hover figure {
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 0;
+}
+.gallery-hover figure img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.gallery-hover figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 14px;
+  padding: 8px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.4s ease;
+}
+.gallery-hover figure:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.85);
+}
+.gallery-hover figure:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media(max-width:720px){
+  .gallery-hover { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  .gallery-hover figure img { height: 220px; }
+}
+}
+@media(max-width:480px){
+  .gallery-hover { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+  .gallery-hover figure img { height: 200px; }
+}
+}
 </style>
 </head>
 <body>
@@ -656,8 +637,6 @@ html { scroll-padding-top: 80px; }
 </div>
 </section>
 <!-- Gallery Section -->
-
-
 <section id="gallery">
 <h3>Галерея работ</h3>
 <div class="gallery gallery-hover">
@@ -847,6 +826,67 @@ html { scroll-padding-top: 80px; }
 </figure>
 </div>
 </section>
+<section id="aerial-crossings">
+  <div class="container">
+    <h3>Организация воздушных пролетов между зданиями</h3>
+    <div class="gallery gallery-hover">
+    <figure><img src="86.jpg" data-full="86.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="87.jpg" data-full="87.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="88.jpg" data-full="88.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="89.jpg" data-full="89.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="90.jpg" data-full="90.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="91.jpg" data-full="91.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="92.jpg" data-full="92.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="93.jpg" data-full="93.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="94.jpg" data-full="94.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="95.jpg" data-full="95.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    </div>
+  </div>
+</section>
+<section id="vok-montage">
+  <div class="container">
+    <h3>Монтаж ВОК на высоте с использованием автовышек, подъёмников и другой техники</h3>
+    <div class="gallery gallery-hover">
+    <figure><img src="98.jpg" data-full="98.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="99.jpg" data-full="99.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1000.jpg" data-full="1000.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1001.jpg" data-full="1001.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1002.jpg" data-full="1002.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1003.jpg" data-full="1003.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1004.jpg" data-full="1004.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1005.jpg" data-full="1005.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1006.jpg" data-full="1006.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1007.jpg" data-full="1007.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1008.jpg" data-full="1008.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1009.jpg" data-full="1009.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1010.jpg" data-full="1010.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1011.jpg" data-full="1011.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1012.jpg" data-full="1012.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1013.jpg" data-full="1013.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1014.jpg" data-full="1014.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1015.jpg" data-full="1015.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1016.jpg" data-full="1016.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    <figure><img src="1017.jpg" data-full="1017.jpg" loading="lazy" alt=""><figcaption></figcaption></figure>
+    </div>
+  </div>
+</section>
+<section id="vok-welding">
+  <div class="container">
+    <h3>Разварка ВОК в муфтах и кроссах с последующим монтажем</h3>
+    <div class="gallery gallery-hover">
+      <figure><img src="img/1019.jpg" loading="lazy" alt="Разварка ВОК 1"></figure>
+      <figure><img src="img/1020.jpg" loading="lazy" alt="Разварка ВОК 2"></figure>
+      <figure><img src="img/1021.jpg" loading="lazy" alt="Разварка ВОК 3"></figure>
+      <figure><img src="img/1022.jpg" loading="lazy" alt="Разварка ВОК 4"></figure>
+      <figure><img src="img/1023.jpg" loading="lazy" alt="Разварка ВОК 5"></figure>
+      <figure><img src="img/1024.jpg" loading="lazy" alt="Разварка ВОК 6"></figure>
+      <figure><img src="img/1025.jpg" loading="lazy" alt="Разварка ВОК 7"></figure>
+      <figure><img src="img/1026.jpg" loading="lazy" alt="Разварка ВОК 8"></figure>
+      <figure><img src="img/1027.jpg" loading="lazy" alt="Разварка ВОК 9"></figure>
+      <figure><img src="img/1028.jpg" loading="lazy" alt="Разварка ВОК 10"></figure>
+    </div>
+  </div>
+</section>
 <section id="partners" style="background-color: #f5f5f5; padding: 60px 0;">
 <div class="container">
 <h3 style="text-align:center;">Партнёры</h3>
@@ -944,13 +984,11 @@ html { scroll-padding-top: 80px; }
       <span class="lightbox-arrow right">&#10095;</span>
     `;
     document.body.appendChild(lightbox);
-
     const lightboxImg = lightbox.querySelector('img');
     const closeBtn = lightbox.querySelector('.lightbox-close');
     const prevBtn = lightbox.querySelector('.lightbox-arrow.left');
     const nextBtn = lightbox.querySelector('.lightbox-arrow.right');
     let currentIndex = 0;
-
     function showImage(index) {
       if (index < 0) index = images.length - 1;
       if (index >= images.length) index = 0;
@@ -958,16 +996,13 @@ html { scroll-padding-top: 80px; }
       lightboxImg.src = images[index].src;
       lightbox.classList.add('active');
     }
-
     images.forEach((img, i) => {
       img.addEventListener('click', () => showImage(i));
     });
-
     closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
     lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('active'); });
     prevBtn.addEventListener('click', e => { e.stopPropagation(); showImage(currentIndex - 1); });
     nextBtn.addEventListener('click', e => { e.stopPropagation(); showImage(currentIndex + 1); });
-
     document.addEventListener('keydown', e => {
       if (!lightbox.classList.contains('active')) return;
       if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
@@ -1045,13 +1080,11 @@ html { scroll-padding-top: 80px; }
       <span class="lightbox-arrow right">&#10095;</span>
     `;
     document.body.appendChild(lightbox);
-
     const lightboxImg = lightbox.querySelector('img');
     const closeBtn = lightbox.querySelector('.lightbox-close');
     const prevBtn = lightbox.querySelector('.lightbox-arrow.left');
     const nextBtn = lightbox.querySelector('.lightbox-arrow.right');
     let currentIndex = 0;
-
     function showImage(index) {
       if (index < 0) index = images.length - 1;
       if (index >= images.length) index = 0;
@@ -1059,16 +1092,13 @@ html { scroll-padding-top: 80px; }
       lightboxImg.src = images[index].src;
       lightbox.classList.add('active');
     }
-
     images.forEach((img, i) => {
       img.addEventListener('click', () => showImage(i));
     });
-
     closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
     lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('active'); });
     prevBtn.addEventListener('click', e => { e.stopPropagation(); showImage(currentIndex - 1); });
     nextBtn.addEventListener('click', e => { e.stopPropagation(); showImage(currentIndex + 1); });
-
     document.addEventListener('keydown', e => {
       if (!lightbox.classList.contains('active')) return;
       if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
@@ -1159,17 +1189,14 @@ html { scroll-padding-top: 80px; }
 <script>
 // Год в футере
 document.getElementById('year').textContent = new Date().getFullYear();
-
 // Мобильное меню
 const navToggle = document.getElementById('navToggle');
 const mainNav = document.getElementById('mainNav');
-
 navToggle.addEventListener('click', function() {
   const isActive = mainNav.classList.toggle('active');
   navToggle.setAttribute('aria-expanded', isActive);
   navToggle.textContent = isActive ? '✕' : '☰';
 });
-
 // Закрытие меню при клике на ссылку
 mainNav.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
@@ -1178,7 +1205,6 @@ mainNav.querySelectorAll('a').forEach(link => {
     navToggle.textContent = '☰';
   });
 });
-
 // Закрытие меню при клике вне его
 document.addEventListener('click', function(event) {
   if (!mainNav.contains(event.target) && !navToggle.contains(event.target)) {
@@ -1187,7 +1213,6 @@ document.addEventListener('click', function(event) {
     navToggle.textContent = '☰';
   }
 });
-
 // Обработка формы
 function handleSubmit(event) {
   event.preventDefault();
@@ -1195,7 +1220,6 @@ function handleSubmit(event) {
   event.target.reset();
   return false;
 }
-
 // Плавная прокрутка к якорям
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
@@ -1212,7 +1236,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
-
 // Адаптивная таблица (добавление скролла на мобильных)
 function checkTableOverflow() {
   const tables = document.querySelectorAll('.price-table');
@@ -1223,10 +1246,8 @@ function checkTableOverflow() {
     }
   });
 }
-
 window.addEventListener('resize', checkTableOverflow);
 window.addEventListener('load', checkTableOverflow);
-
 // Ленивая загрузка изображений (для старых браузеров)
 if ('IntersectionObserver' in window) {
   const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -1241,13 +1262,11 @@ if ('IntersectionObserver' in window) {
       }
     });
   });
-
   document.querySelectorAll('img[data-src]').forEach(img => {
     imageObserver.observe(img);
   });
 }
 </script>
-
 </html>
 <!-- Новый lightbox для раздела Галерея работ -->
 <style>
@@ -1291,7 +1310,6 @@ if ('IntersectionObserver' in window) {
     cursor: pointer;
   }
 </style>
-
 <script>
   (function(){
     const figures = document.querySelectorAll('.gallery-hover figure');
@@ -1304,13 +1322,11 @@ if ('IntersectionObserver' in window) {
       <span class="lightbox-arrow right">&#10095;</span>
     `;
     document.body.appendChild(lightbox);
-
     const lightboxImg = lightbox.querySelector('img');
     const closeBtn = lightbox.querySelector('.lightbox-close');
     const prevBtn = lightbox.querySelector('.lightbox-arrow.left');
     const nextBtn = lightbox.querySelector('.lightbox-arrow.right');
     let currentIndex = 0;
-
     function showImage(index) {
       if (index < 0) index = figures.length - 1;
       if (index >= figures.length) index = 0;
@@ -1318,16 +1334,13 @@ if ('IntersectionObserver' in window) {
       lightboxImg.src = figures[index].querySelector('img').src;
       lightbox.classList.add('active');
     }
-
     figures.forEach((figure, i) => {
       figure.addEventListener('click', () => showImage(i));
     });
-
     closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
     lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('active'); });
     prevBtn.addEventListener('click', e => { e.stopPropagation(); showImage(currentIndex - 1); });
     nextBtn.addEventListener('click', e => { e.stopPropagation(); showImage(currentIndex + 1); });
-
     document.addEventListener('keydown', e => {
       if (!lightbox.classList.contains('active')) return;
       if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
@@ -1335,6 +1348,63 @@ if ('IntersectionObserver' in window) {
       if (e.key === 'Escape') lightbox.classList.remove('active');
     });
   })();
+</script>
+<!-- Lightbox for gallery thumbnails -->
+<style>
+.gallery img { width:100%; height:auto; border-radius:8px; }
+.gallery-hover figure { position: relative; overflow: hidden; border-radius:8px; margin: 8px; display:inline-block; vertical-align:top; width:calc(25% - 16px); }
+@media(max-width:720px){
+  .gallery-hover { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  .gallery-hover figure img { height: 220px; }
+} }
+@media(max-width:480px){
+  .gallery-hover { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+  .gallery-hover figure img { height: 200px; }
+} }
+.gallery-hover img { display:block; width:100%; height:160px; object-fit:cover; transition: transform .35s ease, box-shadow .35s ease; }
+.gallery-hover figcaption { position:absolute; bottom:0; left:0; right:0; padding:8px; color:#fff; background: rgba(0,0,0,0.45); opacity:0; transform:translateY(100%); transition: all .3s ease; font-size:13px; }
+.gallery-hover figure:hover img { transform: scale(1.05); filter:brightness(.9); }
+.gallery-hover figure:hover figcaption { opacity:1; transform:translateY(0); }
+#lightbox { display:none; position:fixed; inset:0; background: rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:9999; padding:24px; }
+#lightbox.open { display:flex; }
+#lightbox img { max-width:90%; max-height:90%; border-radius:8px; box-shadow:0 8px 30px rgba(0,0,0,0.6); }
+#lightbox .close { position:absolute; top:20px; right:28px; color:#fff; font-size:34px; cursor:pointer; background:transparent; border:none; }
+</style>
+<div id="lightbox" role="dialog" aria-hidden="true">
+  <button class="close" aria-label="Закрыть">&times;</button>
+  <img src="" alt="Просмотр изображения">
+</div>
+<script>
+(function(){
+  function openLightbox(src){
+    var lb = document.getElementById('lightbox');
+    lb.querySelector('img').src = src;
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden','false');
+  }
+  function closeLightbox(){
+    var lb = document.getElementById('lightbox');
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden','true');
+    lb.querySelector('img').src = '';
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if(t.tagName === 'IMG' && t.closest('.gallery')){
+      var full = t.getAttribute('data-full') || t.src;
+      openLightbox(full);
+    }
+    if(t.classList.contains('close') || t.id === 'lightbox'){
+      closeLightbox();
+    }
+  });
+  document.getElementById('lightbox').addEventListener('click', function(e){
+    if(e.target === this) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeLightbox();
+  });
+})();
 </script>
 </body>
 </html>
